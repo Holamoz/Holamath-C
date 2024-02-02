@@ -28,12 +28,6 @@ extern "C" {
 
 #define Tensor(Type) struct _Tensor_##Type
 
-#define _Tensor( Type ) Tensor(Type){\
-	size_t dim;\
-	size_t *shape;\
-	Type *T;\
-	}
-
 #define Tensor_i8 Tensor(i8)
 #define Tensor_u8 Tensor(u8)
 #define Tensor_i16 Tensor(i16)
@@ -82,6 +76,15 @@ extern "C" {
 	typedef _Complex __float128 cf128;
 #endif
 
+#define _Tensor( Type )	Tensor(Type){		\
+	size_t dim;				\
+	size_t *shape;				\
+	bool require_grad;			\
+	Tensor(Type) *grad;			\
+	Type *data;				\
+}
+
+
 	_Tensor(bool);
 
 	_Tensor(i8);
@@ -101,14 +104,14 @@ extern "C" {
 	_Tensor(f128);
 
 #if __ENABLE_COMPLEX__
+
 	_Tensor(cf16);
 	_Tensor(cf32);
 	_Tensor(cf64);
 	_Tensor(cf80);
 	_Tensor(cf128);
-#endif
 
-#undef __ENABLE_COMPLEX__
+#endif
 
 #ifdef __cplusplus
 }

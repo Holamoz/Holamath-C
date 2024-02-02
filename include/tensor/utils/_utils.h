@@ -6,7 +6,7 @@
 extern "C" {
 #endif
 
-#define _Tensor_dim(T) _Tensor_dim_##Type
+#define _Tensor_dim(Type) _Tensor_dim_##Type
 #define _Tensor_dense_dim(Type) _Tensor_dense_dim_##Type
 #define _Tensor_sparse_dim(Type) _Tensor_sparse_dim_##Type
 
