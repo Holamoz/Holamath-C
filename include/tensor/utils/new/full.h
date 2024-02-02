@@ -40,6 +40,50 @@ extern "C" {
 
 #endif
 
+#define Tensor_new_full(T) _Tensor_new_full(\
+		__builtin_choose_expr(\
+			__builtin_types_compatible_p (__typeof__(T), i8), i8,\
+			__builtin_choose_expr (\
+				__builtin_types_compatible_p (__typeof__(T), u8), u8,\
+				__builtin_choose_expr (\
+					__builtin_types_compatible_p (__typeof__(T), i16), i16,\
+					__builtin_choose_expr (\
+						__builtin_types_compatible_p (__typeof__(T), u16), u16,\
+						__builtin_choose_expr (\
+							__builtin_types_compatible_p (__typeof__(T), i32), i32,\
+							__builtin_choose_expr (\
+								__builtin_types_compatible_p (__typeof__(T), u32), u32,\
+								__builtin_choose_expr (\
+									__builtin_types_compatible_p (__typeof__(T), i64), i64,\
+									__builtin_choose_expr (\
+										__builtin_types_compatible_p (__typeof__(T), u64), u64,\
+										__builtin_choose_expr (\
+											__builtin_types_compatible_p (__typeof__(T), i128), i128,\
+											__builtin_choose_expr (\
+												__builtin_types_compatible_p (__typeof__(T), u128), u128,\
+												__builtin_choose_expr (\
+													__builtin_types_compatible_p (__typeof__(T), f16), f16,\
+													__builtin_choose_expr (\
+														__builtin_types_compatible_p (__typeof__(T), f32), f32,\
+														__builtin_choose_expr (\
+															__builtin_types_compatible_p (__typeof__(T), f64), f64,\
+															__builtin_choose_expr (\
+																__builtin_types_compatible_p (__typeof__(T), f80), f80,\
+																__builtin_choose_expr (\
+																	__builtin_types_compatible_p (__typeof__(T), f128), f128,\
+																	__builtin_choose_expr( __ENABLE_COMPLEX__,\
+																		__builtin_types_compatible_p (__typeof__(T), cf16), cf16,\
+																		__builtin_choose_expr (\
+																			__builtin_types_compatible_p (__typeof__(T), cf32), cf32,\
+																			__builtin_choose_expr (\
+																				__builtin_types_compatible_p (__typeof__(T), cf64), cf64,\
+																				__builtin_choose_expr (\
+																					__builtin_types_compatible_p (__typeof__(T), cf80), cf80,\
+																					__builtin_choose_expr (\
+																						__builtin_types_compatible_p (__typeof__(T), cf128), cf128,\
+																						(void)0 )))), (void)0 )\
+																						)))))))))))))))) (T)
+
 #ifdef __cplusplus
 }
 #endif

@@ -6,6 +6,12 @@
 
 #include "utils/dim.h"
 
+#include "utils/malloc/tensor.h"
+#include "utils/malloc/full.h"
+#include "utils/malloc/empty.h"
+#include "utils/malloc/ones.h"
+#include "utils/malloc/zeros.h"
+
 #include "utils/new/tensor.h"
 #include "utils/new/full.h"
 #include "utils/new/empty.h"
