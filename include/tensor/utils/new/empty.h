@@ -9,36 +9,32 @@ extern "C" {
 #include "../_utils.h"
 #include "../../type.h"
 
-	/*
-	 * dim, shape, require_grad
-	 */
-#define __Tensor_new_empty(Type) Tensor(Type) _Tensor_new_empty(Type) (size_t, size_t *, bool)
+	Tensor(bool) _Tensor_new_empty_bool (Tensor(bool));
 
-	__Tensor_new_empty(bool);
-	__Tensor_new_empty(i8);
-	__Tensor_new_empty(u8);
-	__Tensor_new_empty(i16);
-	__Tensor_new_empty(u16);
-	__Tensor_new_empty(i32);
-	__Tensor_new_empty(u32);
-	__Tensor_new_empty(i64);
-	__Tensor_new_empty(u64);
-	__Tensor_new_empty(i128);
-	__Tensor_new_empty(u128);
+	Tensor(i8) _Tensor_new_empty_i8 (Tensor(i8));
+	Tensor(u8) _Tensor_new_empty_u8 (Tensor(u8));
+	Tensor(i16) _Tensor_new_empty_i16 (Tensor(i16));
+	Tensor(u16) _Tensor_new_empty_u16 (Tensor(u16));
+	Tensor(i32) _Tensor_new_empty_i32 (Tensor(i32));
+	Tensor(u32) _Tensor_new_empty_u32 (Tensor(u32));
+	Tensor(i64) _Tensor_new_empty_i64 (Tensor(i64));
+	Tensor(u64) _Tensor_new_empty_u64 (Tensor(u64));
+	Tensor(i128) _Tensor_new_empty_i128 (Tensor(i128));
+	Tensor(u128) _Tensor_new_empty_u128 (Tensor(u128));
 
-	__Tensor_new_empty(f16);
-	__Tensor_new_empty(f32);
-	__Tensor_new_empty(f64);
-	__Tensor_new_empty(f80);
-	__Tensor_new_empty(f128);
+	Tensor(f16) _Tensor_new_empty_f16 (Tensor(f16));
+	Tensor(f32) _Tensor_new_empty_f32 (Tensor(f32));
+	Tensor(f64) _Tensor_new_empty_f64 (Tensor(f64));
+	Tensor(f80) _Tensor_new_empty_f80 (Tensor(f80));
+	Tensor(f128) _Tensor_new_empty_f128 (Tensor(f128));
 
 #if __ENABLE_COMPLEX__
 
-	__Tensor_new_empty(cf16);
-	__Tensor_new_empty(cf32);
-	__Tensor_new_empty(cf64);
-	__Tensor_new_empty(cf80);
-	__Tensor_new_empty(cf128);
+	Tensor(cf16) _Tensor_new_empty_cf16 (Tensor(cf16));
+	Tensor(cf32) _Tensor_new_empty_cf32 (Tensor(cf32));
+	Tensor(cf64) _Tensor_new_empty_cf64 (Tensor(cf64));
+	Tensor(cf80) _Tensor_new_empty_cf80 (Tensor(cf80));
+	Tensor(cf128) _Tensor_new_empty_cf128 (Tensor(cf128));
 
 #endif
 

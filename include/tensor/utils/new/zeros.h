@@ -9,36 +9,31 @@ extern "C" {
 #include "../_utils.h"
 #include "../../type.h"
 
-	/*
-	 *  dim, shape, require_grad
-	 */
-#define __Tensor_new_zeros(Type) Tensor(Type) _Tensor_new_zeros(Type) (size_t, size_t *, bool)
+	Tensor(bool) _Tensor_new_zeros_bool (Tensor(bool));
+	Tensor(i8) _Tensor_new_zeros_i8 (Tensor(i8));
+	Tensor(u8) _Tensor_new_zeros_u8 (Tensor(u8));
+	Tensor(i16) _Tensor_new_zeros_i16 (Tensor(i16));
+	Tensor(u16) _Tensor_new_zeros_u16 (Tensor(u16));
+	Tensor(i32) _Tensor_new_zeros_i32 (Tensor(i32));
+	Tensor(u32) _Tensor_new_zeros_u32 (Tensor(u32));
+	Tensor(i64) _Tensor_new_zeros_i64 (Tensor(i64));
+	Tensor(u64) _Tensor_new_zeros_u64 (Tensor(u64));
+	Tensor(i128) _Tensor_new_zeros_i128 (Tensor(i128));
+	Tensor(u128) _Tensor_new_zeros_u128 (Tensor(u128));
 
-	__Tensor_new_zeros(bool);
-	__Tensor_new_zeros(i8);
-	__Tensor_new_zeros(u8);
-	__Tensor_new_zeros(i16);
-	__Tensor_new_zeros(u16);
-	__Tensor_new_zeros(i32);
-	__Tensor_new_zeros(u32);
-	__Tensor_new_zeros(i64);
-	__Tensor_new_zeros(u64);
-	__Tensor_new_zeros(i128);
-	__Tensor_new_zeros(u128);
-
-	__Tensor_new_zeros(f16);
-	__Tensor_new_zeros(f32);
-	__Tensor_new_zeros(f64);
-	__Tensor_new_zeros(f80);
-	__Tensor_new_zeros(f128);
+	Tensor(f16) _Tensor_new_zeros_f16 (Tensor(f16));
+	Tensor(f32) _Tensor_new_zeros_f32 (Tensor(f32));
+	Tensor(f64) _Tensor_new_zeros_f64 (Tensor(f64));
+	Tensor(f80) _Tensor_new_zeros_f80 (Tensor(f80));
+	Tensor(f128) _Tensor_new_zeros_f128 (Tensor(f128));
 
 #if __ENABLE_COMPLEX__
 
-	__Tensor_new_zeros(cf16);
-	__Tensor_new_zeros(cf32);
-	__Tensor_new_zeros(cf64);
-	__Tensor_new_zeros(cf80);
-	__Tensor_new_zeros(cf128);
+	Tensor(cf16) _Tensor_new_zeros_cf16 (Tensor(cf16));
+	Tensor(cf32) _Tensor_new_zeros_cf32 (Tensor(cf32));
+	Tensor(cf64) _Tensor_new_zeros_cf64 (Tensor(cf64));
+	Tensor(cf80) _Tensor_new_zeros_cf80 (Tensor(cf80));
+	Tensor(cf128) _Tensor_new_zeros_cf128 (Tensor(cf128));
 
 #endif
 

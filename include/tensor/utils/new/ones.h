@@ -9,36 +9,32 @@ extern "C" {
 #include "../_utils.h"
 #include "../../type.h"
 
-	/*
-	 *  dim, shape, require_grad
-	 */
-#define __Tensor_new_ones(Type) Tensor(Type) _Tensor_new_ones(Type) (size_t, size_t *, bool)
+	Tensor(bool) _Tensor_new_ones_bool (Tensor(bool));
 
-	__Tensor_new_ones(bool);
-	__Tensor_new_ones(i8);
-	__Tensor_new_ones(u8);
-	__Tensor_new_ones(i16);
-	__Tensor_new_ones(u16);
-	__Tensor_new_ones(i32);
-	__Tensor_new_ones(u32);
-	__Tensor_new_ones(i64);
-	__Tensor_new_ones(u64);
-	__Tensor_new_ones(i128);
-	__Tensor_new_ones(u128);
+	Tensor(i8) _Tensor_new_ones_i8 (Tensor(i8));
+	Tensor(u8) _Tensor_new_ones_u8 (Tensor(u8));
+	Tensor(i16) _Tensor_new_ones_i16 (Tensor(i16));
+	Tensor(u16) _Tensor_new_ones_u16 (Tensor(u16));
+	Tensor(i32) _Tensor_new_ones_i32 (Tensor(i32));
+	Tensor(u32) _Tensor_new_ones_u32 (Tensor(u32));
+	Tensor(i64) _Tensor_new_ones_i64 (Tensor(i64));
+	Tensor(u64) _Tensor_new_ones_u64 (Tensor(u64));
+	Tensor(i128) _Tensor_new_ones_i128 (Tensor(i128));
+	Tensor(u128) _Tensor_new_ones_u128 (Tensor(u128));
 
-	__Tensor_new_ones(f16);
-	__Tensor_new_ones(f32);
-	__Tensor_new_ones(f64);
-	__Tensor_new_ones(f80);
-	__Tensor_new_ones(f128);
+	Tensor(f16) _Tensor_new_ones_f16 (Tensor(f16));
+	Tensor(f32) _Tensor_new_ones_f32 (Tensor(f32));
+	Tensor(f64) _Tensor_new_ones_f64 (Tensor(f64));
+	Tensor(f80) _Tensor_new_ones_f80 (Tensor(f80));
+	Tensor(f128) _Tensor_new_ones_f128 (Tensor(f128));
 
 #if __ENABLE_COMPLEX__
 
-	__Tensor_new_ones(cf16);
-	__Tensor_new_ones(cf32);
-	__Tensor_new_ones(cf64);
-	__Tensor_new_ones(cf80);
-	__Tensor_new_ones(cf128);
+	Tensor(cf16) _Tensor_new_ones_cf16 (Tensor(cf16));
+	Tensor(cf32) _Tensor_new_ones_cf32 (Tensor(cf32));
+	Tensor(cf64) _Tensor_new_ones_cf64 (Tensor(cf64));
+	Tensor(cf80) _Tensor_new_ones_cf80 (Tensor(cf80));
+	Tensor(cf128) _Tensor_new_ones_cf128 (Tensor(cf128));
 
 #endif
 

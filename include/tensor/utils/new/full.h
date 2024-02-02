@@ -9,37 +9,34 @@ extern "C" {
 #include "../_utils.h"
 #include "../../type.h"
 
-	/*
-	 * dim, shape, value, require_grad
-	 */
+	Tensor(bool) _Tensor_new_full_bool (Tensor(bool));
+	
+	Tensor(i8) _Tensor_new_full_i8 (Tensor(i8));
+	Tensor(i16) _Tensor_new_full_i16 (Tensor(i16));
+	Tensor(i32) _Tensor_new_full_i32 (Tensor(i32));
+	Tensor(i64) _Tensor_new_full_i64 (Tensor(i64));
+	Tensor(i128) _Tensor_new_full_i128 (Tensor(i128));
 
-#define __Tensor_new_full(Type) Tensor(Type) _Tensor_new_full(Type) (size_t, size_t *, Type, bool)
+	Tensor(u8) _Tensor_new_full_u8 (Tensor(u8));
+	Tensor(u16) _Tensor_new_full_u16 (Tensor(u16));
+	Tensor(u32) _Tensor_new_full_u32 (Tensor(u32));
+	Tensor(u64) _Tensor_new_full_u64 (Tensor(u64));
+	Tensor(u128) _Tensor_new_full_u128 (Tensor(u128));
 
-	__Tensor_new_full(bool);
-	__Tensor_new_full(i8);
-	__Tensor_new_full(u8);
-	__Tensor_new_full(i16);
-	__Tensor_new_full(u16);
-	__Tensor_new_full(i32);
-	__Tensor_new_full(u32);
-	__Tensor_new_full(i64);
-	__Tensor_new_full(u64);
-	__Tensor_new_full(i128);
-	__Tensor_new_full(u128);
+	Tensor(f16) _Tensor_new_full_f16 (Tensor(f16));
+	Tensor(f32) _Tensor_new_full_f32 (Tensor(f32));
+	Tensor(f64) _Tensor_new_full_f64 (Tensor(f64));
+	Tensor(f80) _Tensor_new_full_f80 (Tensor(f80));
+	Tensor(f128) _Tensor_new_full_f128 (Tensor(f128));
 
-	__Tensor_new_full(f16);
-	__Tensor_new_full(f32);
-	__Tensor_new_full(f64);
-	__Tensor_new_full(f80);
-	__Tensor_new_full(f128);
 
 #if __ENABLE_COMPLEX__
 
-	__Tensor_new_full(cf16);
-	__Tensor_new_full(cf32);
-	__Tensor_new_full(cf64);
-	__Tensor_new_full(cf80);
-	__Tensor_new_full(cf128);
+	Tensor(cf16) _Tensor_new_full_cf16 (Tensor(cf16));
+	Tensor(cf32) _Tensor_new_full_cf32 (Tensor(cf32));
+	Tensor(cf64) _Tensor_new_full_cf64 (Tensor(cf64));
+	Tensor(cf80) _Tensor_new_full_cf80 (Tensor(cf80));
+	Tensor(cf128) _Tensor_new_full_cf128 (Tensor(cf128));
 
 #endif
 

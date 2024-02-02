@@ -6,9 +6,16 @@
 extern "C" {
 #endif
 
-#define _Tensor_dim(Type) _Tensor_dim_##Type
+#include "dim.h"
+
 #define _Tensor_dense_dim(Type) _Tensor_dense_dim_##Type
 #define _Tensor_sparse_dim(Type) _Tensor_sparse_dim_##Type
+
+#define _Tensor_tensor(Type) _Tensor_tensor_##Type
+#define _Tensor_full(Type) _Tensor_full_##Type
+#define _Tensor_empty(Type) _Tensor_empty_##Type
+#define _Tensor_zeros(Type) _Tensor_zeros_##Type
+#define _Tensor_ones(Type) _Tensor_ones_##Type
 
 #define _Tensor_new_tensor(Type) _Tensor_new_tensor_##Type
 #define _Tensor_new_full(Type) _Tensor_new_full_##Type
