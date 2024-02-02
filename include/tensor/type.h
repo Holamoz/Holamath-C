@@ -1,5 +1,6 @@
-#ifndef __TENSOR_H__
-#define __TENSOR_H__
+
+#ifndef __TENSOR_TYPE_H__
+#define __TENSOR_TYPE_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -7,6 +8,23 @@ extern "C" {
 
 #include <stdlib.h>
 #include <stdint.h>
+
+#if ( defined( __STDC_VERSION__ ) && __STDC_VERSION__ >= 199901L ) || defined( __cplusplus )
+#define __ENABLE_COMPLEX__ 1
+#include <complex.h>
+#include <stdbool.h>
+#endif
+
+#ifndef __ENABLE_COMPLEX__
+#define __ENABLE_COMPLEX__ 0
+	typedef char bool;
+	enum BOOLEAN{
+		false,
+		true
+	};
+#define False false
+#define True true
+#endif
 
 #define Tensor(Type) struct _Tensor_##Type
 
@@ -32,6 +50,14 @@ extern "C" {
 #define Tensor_f80 Tensor(f80)
 #define Tensor_f128 Tensor(f128)
 
+#if __ENABLE_COMPLEX__
+#define Tensor_cf16 Tensor(cf16)
+#define Tensor_cf32 Tensor(cf32)
+#define Tensor_cf64 Tensor(cf64)
+#define Tensor_cf80 Tensor(cf80)
+#define Tensor_cf128 Tensor(cf128)
+#endif
+
 	typedef int8_t i8;
 	typedef uint8_t u8;
 	typedef int16_t i16;
@@ -48,6 +74,16 @@ extern "C" {
 	typedef long double f80;
 	typedef __float128 f128;
 
+#if __ENABLE_COMPLEX__
+	typedef _Complex _Float16 cf16;
+	typedef _Complex float cf32;
+	typedef _Complex double cf64;
+	typedef _Complex long double cf80;
+	typedef _Complex __float128 cf128;
+#endif
+
+	_Tensor(bool);
+
 	_Tensor(i8);
 	_Tensor(u8);
 	_Tensor(i16);
@@ -63,6 +99,16 @@ extern "C" {
 	_Tensor(f64);
 	_Tensor(f80);
 	_Tensor(f128);
+
+#if __ENABLE_COMPLEX__
+	_Tensor(cf16);
+	_Tensor(cf32);
+	_Tensor(cf64);
+	_Tensor(cf80);
+	_Tensor(cf128);
+#endif
+
+#undef __ENABLE_COMPLEX__
 
 #ifdef __cplusplus
 }
