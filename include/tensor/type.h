@@ -79,8 +79,9 @@ extern "C" {
 #define _Tensor( Type )	Tensor(Type){		\
 	size_t dim;				\
 	size_t *shape;				\
-	bool require_grad;			\
+	size_t *stride;				\
 	Tensor(Type) *grad;			\
+	bool require_grad;			\
 	Type *data;				\
 }
 

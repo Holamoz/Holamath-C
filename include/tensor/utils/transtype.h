@@ -13,29 +13,25 @@ extern "C" {
 
 #define _Tensor_to(Type1, Type2) Tensor_to_##Type1##_##Type2
 #define __Tensor_to(Type1, Type2) Tensor(Type2) _Tensor_to(Type1, Type2) (Tensor(Type1) T)
-#define ___Tensor_to(Type1, Type2) __Tensor_to(Type1, Type2){\
-	register Tensor(Type2) R;				\
-	register size_t len;					\
-	register size_t i;					\
-	R.dim = T.dim;						\
-	R.shape = malloc( sizeof(Type2) * R.dim );		\
-								\
-	memcpy( R.shape, T.shape, R.dim );			\
-								\
-	len = 1;						\
-	for( i = 0; i < R.dim; i++ ){				\
-		if( *( R.shape + i ) ){				\
-			len *= *( R.shape + i );		\
-		}						\
-	}							\
-								\
-	R.data = malloc( sizeof(Type2) * len );			\
-								\
-	for( i = 0; i < len; i++ ){				\
-		*( R.data + i ) = (Type2)*( T.data + i );	\
-	}							\
-								\
-	return R;						\
+#define ___Tensor_to(Type1, Type2) __Tensor_to(Type1, Type2){		\
+	register Tensor(Type2) R;					\
+	register size_t i;						\
+	R.dim = T.dim;							\
+	R.grad = NULL;							\
+	R.require_grad = T.require_grad;				\
+	R.shape = malloc( sizeof(Type2) * T.dim );			\
+	R.stride = malloc( sizeof(Type2) * ( T.dim + 1 ) );		\
+									\
+	memcpy( R.shape, T.shape, T.dim );				\
+	memcpy( R.stride, T.stride, T.dim + 1 );			\
+									\
+	R.data = malloc( sizeof(Type2) * *( R.stride + R.dim ) );	\
+									\
+	for( i = 0; i < *( R.stride + R.dim ); i++ ){			\
+		*( R.data + i ) = (Type2)*( T.data + i );		\
+	}								\
+									\
+	return R;							\
 }
 
 	___Tensor_to(i8, i8);
