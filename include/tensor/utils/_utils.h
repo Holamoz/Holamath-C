@@ -16,7 +16,8 @@ extern "C" {
 #define _Tensor_new_ones(Type) _Tensor_new_ones_##Type
 #define _Tensor_new_zeros(Type) _Tensor_new_zeros_##Type
 
-#define _Tensor_to
+#include "transtype.h"
+#define Tensor_to(Type1, Type2) _Tensor_to(Type1, Type2)
 
 #define _Tensor_to_dense(Type) _Tensor_to_dense_##Type
 #define _Tensor_to_sparse(Type) _Tensor_to_sparse_##Type
