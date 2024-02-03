@@ -39,7 +39,7 @@ extern "C" {
 
 #define _Tensor_sparse_mask(Type) _Tensor_sparse_mask_##Type
 
-#define _Tensor_element_size(Type) _Tensor_element_size_##Type
+#include "element_size.h"
 
 #define _Tensor_view(Type) _Tensor_view_##Type
 #define _Tensor_view_as(Type) _Tensor_view_as_##Type
