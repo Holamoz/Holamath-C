@@ -18,4 +18,8 @@
 #include "utils/new/ones.h"
 #include "utils/new/zeros.h"
 
+#include "utils/free.h"
+
+#include "utils/view.h"
+
 #endif
