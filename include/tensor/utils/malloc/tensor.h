@@ -9,6 +9,10 @@ extern "C" {
 #include "../../type.h"
 #include "../_utils.h"
 
+	/*
+	 * dim, shape, data, reqyure_grad
+	 */
+
 	Tensor(bool) _Tensor_tensor_bool (size_t, size_t *, bool *, bool);
 
 	Tensor(i8) _Tensor_tensor_i8 (size_t, size_t *, i8 *, bool);

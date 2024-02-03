@@ -13,6 +13,8 @@ extern "C" {
 #define __ENABLE_COMPLEX__ 1
 #include <complex.h>
 #include <stdbool.h>
+#undef bool
+	typedef _Bool bool;
 #endif
 
 #ifndef __ENABLE_COMPLEX__
