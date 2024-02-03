@@ -23,4 +23,6 @@
 #include "utils/view.h"
 #include "utils/view_as.h"
 
+#include "utils/permute.h"
+
 #endif

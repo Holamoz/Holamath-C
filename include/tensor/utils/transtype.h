@@ -595,7 +595,7 @@ extern "C" {
 																					__builtin_types_compatible_p (__typeof__(T), Tensor(cf80)), cf80,\
 																					__builtin_choose_expr (\
 																						__builtin_types_compatible_p (__typeof__(T), Tensor(cf128)), cf128,\
-																						(void)0)))), (void)0)\
+																						void)))), void)\
 																						))))))))))))))), Type2) (T)
 
 #ifdef ___cplusplus
