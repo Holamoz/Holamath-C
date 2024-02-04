@@ -31,10 +31,10 @@ Tensor(bool) _Tensor_tensor_bool( size_t dim, size_t *shape, bool *data, bool re
 	ret.require_grad = require_grad;
 
 	ret.dim = dim;
-	ndim = max( ret.dim, (__typeof__(ret.dim))0 );
+	ndim = max( ret.dim, (__typeof__(ret.dim))1 );
 
 	ret.shape = malloc( sizeof( *ret.shape ) * ndim );
-	ret.stride = malloc( sizeof( *ret.stride ) * ( ndim + 1 ) );
+	ret.stride = malloc( sizeof( *ret.stride ) * ( ret.dim + 1 ) );
 
 	*ret.shape = 1;
 
