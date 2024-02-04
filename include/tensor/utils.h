@@ -27,6 +27,6 @@
 
 #include "utils/reshape.h"
 
-#include "utils/resize.h"
+#include "utils/resize_.h"
 
 #endif
