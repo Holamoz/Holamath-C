@@ -9,6 +9,8 @@ extern "C" {
 #include <stdlib.h>
 #include <stdint.h>
 
+#include <quadmath.h>
+
 #if ( defined( __STDC_VERSION__ ) && __STDC_VERSION__ >= 199901L ) || defined( __cplusplus )
 #define __ENABLE_COMPLEX__ 1
 #include <complex.h>
@@ -75,7 +77,7 @@ extern "C" {
 	typedef _Complex float cf32;
 	typedef _Complex double cf64;
 	typedef _Complex long double cf80;
-	typedef _Complex __float128 cf128;
+	typedef __complex128 cf128;
 #endif
 
 #define _Tensor( Type )	Tensor(Type){		\

@@ -4,7 +4,7 @@ CFLAGS = -Wall -std=gnu99 -lquadmath -lm -lpthread -lOpenCL -march=native -fPIC 
 
 C_FILES = $(shell find src -name "*.c")
 OBJ = $(patsubst %.c, %.o, $(C_FILES))
-OBJ_FILE = $(find src -name "*.o")
+OBJ_FILE = $(shell find . -name "*.o")
 
 TARGET = libholamath.so
 
@@ -13,12 +13,13 @@ TARGET = libholamath.so
 all: $(TARGET)
 
 clean:
-	-@rm $(OBJ_FILE) $(TARGET)
+	-@rm $(OBJ_FILE)
+	-@rm $(TARGET)
 
 $(TARGET): $(OBJ)
 	@echo Makeing Shared library $@
 	@$(CC) -shared -o $@ $^
 
-%.0: %.c
+%.o: %.c
 	@echo Compiling and generating object $@
 	@$(CC) $(CFLAGS) -o $@ $<
