@@ -9,7 +9,8 @@ extern "C" {
 #include "_utils.h"
 #include "../type.h"
 
-#define Tensor_size(T) (sizeof(*T.data))
+#define Tensor_element_size(T) (sizeof(*T.data))
+#define Tensor_itemsize(T) Tensor_element_size(T)
 
 #ifdef __cplusplus
 }
