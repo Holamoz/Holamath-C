@@ -25,4 +25,8 @@
 
 #include "utils/permute.h"
 
+#include "utils/reshape.h"
+
+#include "utils/resize.h"
+
 #endif
