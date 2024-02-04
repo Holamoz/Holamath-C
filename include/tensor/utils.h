@@ -30,5 +30,6 @@
 #include "utils/resize_.h"
 
 #include "utils/squeeze.h"
+#include "utils/unsqueeze.h"
 
 #endif
