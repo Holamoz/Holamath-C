@@ -29,4 +29,6 @@
 
 #include "utils/resize_.h"
 
+#include "utils/squeeze.h"
+
 #endif
