@@ -116,7 +116,7 @@ extern "C" {
 																					__builtin_choose_expr (\
 																						__builtin_types_compatible_p (__typeof__(T), Tensor(cf128)), cf128,\
 																						void)))), void)\
-																						)))))))))))))))) (T, __VA_ARGS__)
+																						)))))))))))))))) (T, ##__VA_ARGS__)
 
 #define Tensor_squeeze_(T, ...) _Tensor_squeeze_(\
 		__builtin_choose_expr(\
@@ -160,7 +160,7 @@ extern "C" {
 																					__builtin_choose_expr (\
 																						__builtin_types_compatible_p (__typeof__(T), Tensor(cf128)), cf128,\
 																						void)))), void)\
-																						)))))))))))))))) (T, __VA_ARGS__)
+																						)))))))))))))))) (T, ##__VA_ARGS__)
 
 #ifdef __cplusplus
 }
