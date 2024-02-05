@@ -32,4 +32,6 @@
 #include "utils/squeeze.h"
 #include "utils/unsqueeze.h"
 
+#include "utils/clone.h"
+
 #endif

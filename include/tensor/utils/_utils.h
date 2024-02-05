@@ -67,7 +67,7 @@ extern "C" {
 #include "zeros_.h"
 #include "random_.h"
 #define _Tensor_clone(Type) _Tensor_clone_##Type
-#define _Tensor_copy(Type) _Tensor_copy_##Type
+#define _Tensor_copy_(Type) _Tensor_copy_##Type##_
 
 #define _Tensor_contiguous(Type) _Tensor_contiguous_##Type
 #define _Tensor_quantile(Type) _Tensor_quantile_##Type
