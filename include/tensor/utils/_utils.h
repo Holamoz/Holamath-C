@@ -64,8 +64,8 @@ extern "C" {
 #define _Tensor_unsqueeze(Type) _Tensor_unsqueeze_##Type
 #define _Tensor_unsqueeze_(Type) _Tensor_unsqueeze_##Type##_
 
-#define _Tensor_zeros_(Type) _Tensor_zeros_##Type##_
-#define _Tensor_random_(Type) _Tensor_random_##Type##_
+#include "zeros_.h"
+#include "random_.h"
 #define _Tensor_clone(Type) _Tensor_clone_##Type
 #define _Tensor_copy(Type) _Tensor_copy_##Type
 
