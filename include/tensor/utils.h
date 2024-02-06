@@ -36,5 +36,6 @@
 #include "utils/copy_.h"
 
 #include "utils/contiguous.h"
+#include "utils/quantile.h"
 
 #endif
