@@ -35,4 +35,6 @@
 #include "utils/clone.h"
 #include "utils/copy_.h"
 
+#include "utils/contiguous.h"
+
 #endif
