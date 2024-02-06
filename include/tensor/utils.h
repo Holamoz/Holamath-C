@@ -40,5 +40,6 @@
 #include "utils/nanquantile.h"
 
 #include "utils/index/copy.h"
+#include "utils/index/copy_.h"
 
 #endif
