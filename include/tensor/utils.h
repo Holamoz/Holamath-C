@@ -39,4 +39,6 @@
 #include "utils/quantile.h"
 #include "utils/nanquantile.h"
 
+#include "utils/index/copy.h"
+
 #endif
