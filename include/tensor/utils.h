@@ -37,5 +37,6 @@
 
 #include "utils/contiguous.h"
 #include "utils/quantile.h"
+#include "utils/nanquantile.h"
 
 #endif
