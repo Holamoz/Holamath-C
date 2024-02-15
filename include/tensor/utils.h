@@ -42,4 +42,6 @@
 #include "utils/index/copy.h"
 #include "utils/index/copy_.h"
 
+#include "utils/where.h"
+
 #endif
