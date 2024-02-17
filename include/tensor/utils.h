@@ -62,4 +62,6 @@
 #include "utils/is_signed.h"
 #include "utils/isreal.h"
 
+#include "utils/sort.h"
+
 #endif
