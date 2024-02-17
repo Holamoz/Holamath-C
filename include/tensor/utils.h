@@ -58,5 +58,6 @@
 #include "utils/isnan.h"
 
 #include "utils/is_complex.h"
+#include "utils/isreal.h"
 
 #endif
