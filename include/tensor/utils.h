@@ -83,4 +83,6 @@
 #include "utils/det.h"
 #include "utils/logdet.h"
 
+#include "utils/trace.h"
+
 #endif
