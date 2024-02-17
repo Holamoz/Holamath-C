@@ -65,4 +65,6 @@
 #include "utils/sort.h"
 #include "utils/msort.h"
 
+#include "utils/abs.h"
+
 #endif
