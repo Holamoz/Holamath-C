@@ -95,8 +95,6 @@ extern "C" {
 #define _Tensor_is_sparse(Type) _Tensor_is_sparse_##Type
 #define _Tensor_is_contiguous(Type) _Tensor_is_contiguous_##Type
 
-#define _Tensor_istft(Type) _Tensor_istft_##Type
-
 #define _Tensor_isclose(Type) _Tensor_isclose_##Type
 #define _Tensor_isfinite(Type) _Tensor_isfinite_##Type
 #define _Tensor_isinf(Type) _Tensor_isinf_##Type

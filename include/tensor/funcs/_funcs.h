@@ -100,6 +100,7 @@ extern "C" {
 
 #define _Tensor_argwhere(Type) _Tensor_argwhere_##Type
 
+#define _Tensor_istft(Tyoe) _Tensor_istft_##Type
 #define _Tensor_stft(Type) _Tensor_stft_##Type
 
 #define _Tensor_square(Type) _Tensor_square_##Type
