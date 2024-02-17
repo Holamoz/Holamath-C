@@ -80,4 +80,6 @@
 
 #include "utils/renorm.h"
 
+#include "utils/det.h"
+
 #endif
