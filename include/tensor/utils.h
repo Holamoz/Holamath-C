@@ -85,4 +85,6 @@
 
 #include "utils/trace.h"
 
+#include "utils/rad2deg.h"
+
 #endif
