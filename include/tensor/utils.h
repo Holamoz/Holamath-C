@@ -53,5 +53,6 @@
 #include "utils/isclose.h"
 #include "utils/isfinite.h"
 #include "utils/isinf.h"
+#include "utils/isposinf.h"
 
 #endif
