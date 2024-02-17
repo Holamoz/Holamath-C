@@ -103,8 +103,8 @@ extern "C" {
 #define _Tensor_isnan(Type) _Tensor_isnan_##Type
 
 #define _Tensor_is_complex(Type) _Tensor_is_complex_##Type
-#define _Tensor_isreal(Type) _Tensor_isreal_##Type
 #define _Tensor_is_floating_point(Type) _Tensor_is_float_##Type
+#define _Tensor_isreal(Type) _Tensor_isreal_##Type
 #define _Tensor_is_signed(Type) _Tensor_is_signed_##Type
 
 #define _Tensor_is_inference(Type) _Tensor_is_inference_##Type

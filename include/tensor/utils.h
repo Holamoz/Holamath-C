@@ -58,6 +58,7 @@
 #include "utils/isnan.h"
 
 #include "utils/is_complex.h"
+#include "utils/is_floating_point.h"
 #include "utils/isreal.h"
 
 #endif
