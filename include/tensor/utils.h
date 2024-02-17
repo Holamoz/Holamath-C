@@ -50,4 +50,6 @@
 #include "utils/is_conj.h"
 #include "utils/is_contiguous.h"
 
+#include "utils/isclose.h"
+
 #endif
