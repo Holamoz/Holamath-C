@@ -70,4 +70,6 @@
 
 #include "utils/nan_to_num.h"
 
+#include "utils/sign.h"
+
 #endif
