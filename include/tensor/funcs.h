@@ -8,6 +8,8 @@ extern "C" {
 
 #include "funcs/_funcs.h"
 
+#include "funcs/istft.h"
+
 #ifdef __cplusplus
 }
 #endif
