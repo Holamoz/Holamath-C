@@ -89,5 +89,6 @@
 
 #include "utils/scatter.h"
 #include "utils/scatter_add.h"
+#include "utils/scatter_reduce.h"
 
 #endif
