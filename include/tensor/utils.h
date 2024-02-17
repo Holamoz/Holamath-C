@@ -55,5 +55,6 @@
 #include "utils/isinf.h"
 #include "utils/isposinf.h"
 #include "utils/isneginf.h"
+#include "utils/isnan.h"
 
 #endif
