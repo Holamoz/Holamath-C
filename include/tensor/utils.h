@@ -48,5 +48,6 @@
 
 #include "utils/is_quantized.h"
 #include "utils/is_conj.h"
+#include "utils/is_contiguous.h"
 
 #endif
