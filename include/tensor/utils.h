@@ -71,5 +71,6 @@
 #include "utils/nan_to_num.h"
 
 #include "utils/sign.h"
+#include "utils/signbit.h"
 
 #endif
