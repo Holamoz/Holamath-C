@@ -51,5 +51,6 @@
 #include "utils/is_contiguous.h"
 
 #include "utils/isclose.h"
+#include "utils/isfinite.h"
 
 #endif
