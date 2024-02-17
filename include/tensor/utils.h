@@ -88,5 +88,6 @@
 #include "utils/rad2deg.h"
 
 #include "utils/scatter.h"
+#include "utils/scatter_add.h"
 
 #endif
