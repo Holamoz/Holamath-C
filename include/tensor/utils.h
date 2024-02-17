@@ -68,4 +68,6 @@
 #include "utils/abs.h"
 #include "utils/neg.h"
 
+#include "utils/nan_to_num.h"
+
 #endif
