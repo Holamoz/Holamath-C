@@ -78,4 +78,6 @@
 #include "utils/vector_norm.h"
 #include "utils/matrix_norm.h"
 
+#include "utils/renorm.h"
+
 #endif
