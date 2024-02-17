@@ -59,6 +59,7 @@
 
 #include "utils/is_complex.h"
 #include "utils/is_floating_point.h"
+#include "utils/is_signed.h"
 #include "utils/isreal.h"
 
 #endif
