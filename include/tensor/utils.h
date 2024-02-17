@@ -57,4 +57,6 @@
 #include "utils/isneginf.h"
 #include "utils/isnan.h"
 
+#include "utils/is_complex.h"
+
 #endif
