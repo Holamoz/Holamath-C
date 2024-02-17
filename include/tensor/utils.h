@@ -76,5 +76,6 @@
 
 #include "utils/dist.h"
 #include "utils/vector_norm.h"
+#include "utils/matrix_norm.h"
 
 #endif
