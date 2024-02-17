@@ -137,7 +137,8 @@ extern "C" {
 
 /* p-norm */
 #define _Tensor_dist(Type) _Tensor_dist_##Type
-#define _Tensor_norm(Type) _Tensor_norm_##Type
+#define _Tensor_vector_norm(Type) _Tensor_norm_##Type
+#define _Tensor_matrix_norm(Type) _Tensor_norm_##Type
 
 #define _Tensor_renorm(Type) _Tensor_renorm_##Type
 #define _Tensor_renorm_(Type) _Tensor_renorm_##Type##_

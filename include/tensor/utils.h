@@ -74,4 +74,7 @@
 #include "utils/signbit.h"
 #include "utils/sgn.h"
 
+#include "utils/dist.h"
+#include "utils/vector_norm.h"
+
 #endif
