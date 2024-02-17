@@ -46,4 +46,7 @@
 
 #include "utils/nonzero.h"
 
+#include "utils/is_quantized.h"
+#include "utils/is_conj.h"
+
 #endif
