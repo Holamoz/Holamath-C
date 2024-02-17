@@ -1,6 +1,6 @@
 
-#ifndef __TENSOR_UTILS_ISTFT_H__
-#define __TENSOR_UTILS_ISTFT_H__
+#ifndef __TENSOR_FUNCS_ISTFT_H__
+#define __TENSOR_FUNCS_ISTFT_H__
 
 #ifdef __cplusplus
 extern "C" {
