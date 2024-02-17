@@ -81,5 +81,6 @@
 #include "utils/renorm.h"
 
 #include "utils/det.h"
+#include "utils/logdet.h"
 
 #endif
