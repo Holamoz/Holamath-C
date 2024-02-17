@@ -66,5 +66,6 @@
 #include "utils/msort.h"
 
 #include "utils/abs.h"
+#include "utils/neg.h"
 
 #endif
