@@ -44,4 +44,6 @@
 
 #include "utils/where.h"
 
+#include "utils/nonzero.h"
+
 #endif
