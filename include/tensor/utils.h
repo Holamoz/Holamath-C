@@ -92,5 +92,6 @@
 #include "utils/scatter_reduce.h"
 
 #include "utils/masked_scatter.h"
+#include "utils/select_scatter.h"
 
 #endif
