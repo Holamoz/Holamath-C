@@ -95,4 +95,6 @@
 #include "utils/select_scatter.h"
 #include "utils/select.h"
 
+#include "utils/index_select.h"
+
 #endif
