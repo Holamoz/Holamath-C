@@ -102,4 +102,6 @@
 
 #include "utils/fill_.h"
 
+#include "utils/index/fill.h"
+
 #endif
