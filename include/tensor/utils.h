@@ -98,4 +98,6 @@
 #include "utils/index_select.h"
 #include "utils/masked_select.h"
 
+#include "utils/masked_fill.h"
+
 #endif
