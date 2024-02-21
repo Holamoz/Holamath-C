@@ -106,4 +106,6 @@
 
 #include "utils/diag.h"
 
+#include "utils/diag_embed.h"
+
 #endif
