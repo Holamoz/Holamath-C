@@ -109,4 +109,6 @@
 #include "utils/diag_embed.h"
 #include "utils/diagflat.h"
 
+#include "utils/diagonal_scatter.h"
+
 #endif
