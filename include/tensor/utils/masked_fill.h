@@ -61,6 +61,7 @@ extern "C" {
 	Tensor(cf64) _Tensor_masked_fill_cf64_ (Tensor(bool), cf64);
 	Tensor(cf80) _Tensor_masked_fill_cf80_ (Tensor(bool), cf80);
 	Tensor(cf128) _Tensor_masked_fill_cf128_ (Tensor(bool), cf128);
+
 #ifdef __cplusplus
 }
 #endif

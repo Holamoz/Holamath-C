@@ -100,4 +100,6 @@
 
 #include "utils/masked_fill.h"
 
+#include "utils/fill_.h"
+
 #endif

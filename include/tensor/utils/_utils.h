@@ -172,9 +172,9 @@ extern "C" {
 #define _Tensor_masked_select(Type) _Tensor_masked_select_##Type
 
 #define _Tensor_masked_fill(Type) _Tensor_masked_fill_##Type
+#define _Tensor_masked_fill_(Type) _Tensor_masked_fill_##Type##_
 
 #define _Tensor_fill_(Type) _Tensor_fill_##Type##_
-#define _Tensor_masked_fill_(Type) _Tensor_masked_fill_##Type##_
 
 #define _Tensor_index_fill(Type) _Tensor_index_fill_##Type
 #define _Tensor_index_fill_(Type) _Tensor_index_fill_##Type##_
