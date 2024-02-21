@@ -104,4 +104,6 @@
 
 #include "utils/index/fill.h"
 
+#include "utils/diag.h"
+
 #endif
