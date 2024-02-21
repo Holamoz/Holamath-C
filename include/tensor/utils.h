@@ -96,5 +96,6 @@
 #include "utils/select.h"
 
 #include "utils/index_select.h"
+#include "utils/masked_select.h"
 
 #endif
