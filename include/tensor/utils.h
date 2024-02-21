@@ -111,4 +111,6 @@
 
 #include "utils/diagonal_scatter.h"
 
+#include "utils/fill_diagonal_.h"
+
 #endif
