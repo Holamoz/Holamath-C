@@ -107,5 +107,6 @@
 #include "utils/diag.h"
 
 #include "utils/diag_embed.h"
+#include "utils/diagflat.h"
 
 #endif
