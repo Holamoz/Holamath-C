@@ -6,8 +6,8 @@
 extern "C" {
 #endif
 
-#include "_utils.h"
-#include "../type.h"
+#include "../_utils.h"
+#include "../../type.h"
 
 	Tensor(bool) _Tensor_index_select_bool (Tensor(bool), size_t, Tensor(u64));
 

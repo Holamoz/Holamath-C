@@ -95,7 +95,7 @@
 #include "utils/select_scatter.h"
 #include "utils/select.h"
 
-#include "utils/index_select.h"
+#include "utils/index/select.h"
 #include "utils/masked_select.h"
 
 #include "utils/masked_fill.h"
