@@ -121,4 +121,6 @@
 
 #include "utils/exponential_.h"
 
+#include "utils/float_power.h"
+
 #endif
