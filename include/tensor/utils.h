@@ -123,4 +123,6 @@
 
 #include "utils/float_power.h"
 
+#include "utils/pow.h"
+
 #endif
