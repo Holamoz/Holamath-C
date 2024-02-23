@@ -124,5 +124,6 @@
 #include "utils/float_power.h"
 
 #include "utils/pow.h"
+#include "utils/matrix_power.h"
 
 #endif
