@@ -117,4 +117,6 @@
 
 #include "utils/index_put.h"
 
+#include "utils/diagonal.h"
+
 #endif
