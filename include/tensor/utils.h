@@ -113,4 +113,6 @@
 
 #include "utils/fill_diagonal_.h"
 
+#include "utils/put_.h"
+
 #endif
