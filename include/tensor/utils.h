@@ -119,4 +119,6 @@
 
 #include "utils/diagonal.h"
 
+#include "utils/exponential_.h"
+
 #endif
