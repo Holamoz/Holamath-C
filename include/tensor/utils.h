@@ -125,5 +125,6 @@
 
 #include "utils/pow.h"
 #include "utils/matrix_power.h"
+#include "utils/matrix_exp.h"
 
 #endif
