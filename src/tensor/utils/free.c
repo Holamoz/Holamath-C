@@ -26,3 +26,16 @@ void _Tensor_free_cf32 (Tensor(cf32) T) { free ( T.shape ); free ( T.stride ); f
 void _Tensor_free_cf64 (Tensor(cf64) T) { free ( T.shape ); free ( T.stride ); free ( T.grad ); free ( T.data );}
 void _Tensor_free_cf80 (Tensor(cf80) T) { free ( T.shape ); free ( T.stride ); free ( T.grad ); free ( T.data );}
 void _Tensor_free_cf128 (Tensor(cf128) T) { free ( T.shape ); free ( T.stride ); free ( T.grad ); free ( T.data );}
+
+/* Generate with following macros
+ * #define _Tensor(Type,func,RET,...) RET _Tensor_##func##_##Type (__VA_ARGS__){\
+ * free ( T.shape );\
+ * free ( T.stride );\
+ * free ( T.grad );\
+ * free ( T.data );\
+ * }
+ * #define __Tensor(Type) _Tensor(Type, free,\
+ * void,\
+ * Tensor(Type) T\
+ * )
+ */
