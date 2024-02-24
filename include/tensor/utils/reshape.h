@@ -38,6 +38,7 @@ extern "C" {
 
 #endif
 
+/*
 #define Tensor_reshape(T, dim, shape) _Tensor_reshape(\
 		__builtin_choose_expr(\
 			__builtin_types_compatible_p (__typeof__(T), Tensor(i8)), i8,\
@@ -82,7 +83,9 @@ extern "C" {
 																						void)))), void)\
 																						)))))))))))))))) (T, dim, shape)
 
+*/
 #define Tensor_reshape_as(T1, T2) Tensor_reshape(T1, T2.dim, T2.shape)
+#define Tensor_reshape(T, dim, shape) Tensor_view(T, dim, shape)
 
 #ifdef __cplusplus
 }
