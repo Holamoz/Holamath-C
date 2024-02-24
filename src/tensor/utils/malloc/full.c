@@ -43,7 +43,7 @@ Tensor(bool) _Tensor_full_bool (size_t dim, size_t *shape, bool value, bool requ
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -97,7 +97,7 @@ Tensor(i8) _Tensor_full_i8 (size_t dim, size_t *shape, i8 value, bool require_gr
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -151,7 +151,7 @@ Tensor(i16) _Tensor_full_i16 (size_t dim, size_t *shape, i16 value, bool require
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -205,7 +205,7 @@ Tensor(i32) _Tensor_full_i32 (size_t dim, size_t *shape, i32 value, bool require
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -259,7 +259,7 @@ Tensor(i64) _Tensor_full_i64 (size_t dim, size_t *shape, i64 value, bool require
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -313,7 +313,7 @@ Tensor(i128) _Tensor_full_i128 (size_t dim, size_t *shape, i128 value, bool requ
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -367,7 +367,7 @@ Tensor(u8) _Tensor_full_u8 (size_t dim, size_t *shape, u8 value, bool require_gr
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -421,7 +421,7 @@ Tensor(u16) _Tensor_full_u16 (size_t dim, size_t *shape, u16 value, bool require
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -475,7 +475,7 @@ Tensor(u32) _Tensor_full_u32 (size_t dim, size_t *shape, u32 value, bool require
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -529,7 +529,7 @@ Tensor(u64) _Tensor_full_u64 (size_t dim, size_t *shape, u64 value, bool require
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -583,7 +583,7 @@ Tensor(u128) _Tensor_full_u128 (size_t dim, size_t *shape, u128 value, bool requ
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -637,7 +637,7 @@ Tensor(f16) _Tensor_full_f16 (size_t dim, size_t *shape, f16 value, bool require
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -691,7 +691,7 @@ Tensor(f32) _Tensor_full_f32 (size_t dim, size_t *shape, f32 value, bool require
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -745,7 +745,7 @@ Tensor(f64) _Tensor_full_f64 (size_t dim, size_t *shape, f64 value, bool require
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -799,7 +799,7 @@ Tensor(f80) _Tensor_full_f80 (size_t dim, size_t *shape, f80 value, bool require
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -853,7 +853,7 @@ Tensor(f128) _Tensor_full_f128 (size_t dim, size_t *shape, f128 value, bool requ
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -909,7 +909,7 @@ Tensor(cf16) _Tensor_full_cf16 (size_t dim, size_t *shape, cf16 value, bool requ
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -963,7 +963,7 @@ Tensor(cf32) _Tensor_full_cf32 (size_t dim, size_t *shape, cf32 value, bool requ
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -1017,7 +1017,7 @@ Tensor(cf64) _Tensor_full_cf64 (size_t dim, size_t *shape, cf64 value, bool requ
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -1071,7 +1071,7 @@ Tensor(cf80) _Tensor_full_cf80 (size_t dim, size_t *shape, cf80 value, bool requ
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -1125,7 +1125,7 @@ Tensor(cf128) _Tensor_full_cf128 (size_t dim, size_t *shape, cf128 value, bool r
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
