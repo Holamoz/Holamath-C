@@ -43,7 +43,7 @@ Tensor(bool) _Tensor_zeros_bool (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -95,7 +95,7 @@ Tensor(i8) _Tensor_zeros_i8 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + 1 ) = len;
 		}
 	}
 
@@ -147,7 +147,7 @@ Tensor(i16) _Tensor_zeros_i16 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -199,7 +199,7 @@ Tensor(i32) _Tensor_zeros_i32 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -251,7 +251,7 @@ Tensor(i64) _Tensor_zeros_i64 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -303,7 +303,7 @@ Tensor(i128) _Tensor_zeros_i128 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -355,7 +355,7 @@ Tensor(u8) _Tensor_zeros_u8 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -407,7 +407,7 @@ Tensor(u16) _Tensor_zeros_u16 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -459,7 +459,7 @@ Tensor(u32) _Tensor_zeros_u32 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -511,7 +511,7 @@ Tensor(u64) _Tensor_zeros_u64 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -563,7 +563,7 @@ Tensor(u128) _Tensor_zeros_u128 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -615,7 +615,7 @@ Tensor(f16) _Tensor_zeros_f16 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -667,7 +667,7 @@ Tensor(f32) _Tensor_zeros_f32 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -719,7 +719,7 @@ Tensor(f64) _Tensor_zeros_f64 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -771,7 +771,7 @@ Tensor(f80) _Tensor_zeros_f80 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -823,7 +823,7 @@ Tensor(f128) _Tensor_zeros_f128 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -877,7 +877,7 @@ Tensor(cf16) _Tensor_zeros_cf16 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -929,7 +929,7 @@ Tensor(cf32) _Tensor_zeros_cf32 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -981,7 +981,7 @@ Tensor(cf64) _Tensor_zeros_cf64 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -1033,7 +1033,7 @@ Tensor(cf80) _Tensor_zeros_cf80 (size_t dim, size_t *shape, bool require_grad){
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
@@ -1085,7 +1085,7 @@ Tensor(cf128) _Tensor_zeros_cf128 (size_t dim, size_t *shape, bool require_grad)
 	for( i = 0; i < ret.dim; i++ ){
 		if( *( ret.shape + i ) ){
 			len /= *( ret.shape + i );
-			*( ret.stride ) = len;
+			*( ret.stride + i ) = len;
 		}
 	}
 
