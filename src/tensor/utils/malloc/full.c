@@ -3,7 +3,7 @@
 #include "../../../../include/minmax.h"
 
 #define ___Tensor_full(Type) \
-Tensor(Type) _Tensor_full_Type (size_t dim, size_t *shape, Type value, bool require_grad){	\
+Tensor(Type) _Tensor_full_##Type (size_t dim, size_t *shape, Type value, bool require_grad){	\
 	register Tensor(Type) ret = {								\
 		.dim = 0,									\
 		.shape = NULL,									\
@@ -190,9 +190,9 @@ Tensor(u8) _Tensor_full_u8 (size_t dim, size_t *shape, u8 value, bool require_gr
 	return ret;
 }
 
-__Tensor(i16)
-__Tensor(i32)
-__Tensor(i64)
+___Tensor_full(i16)
+___Tensor_full(i32)
+___Tensor_full(i64)
 ___Tensor_full(i128)
 
 ___Tensor_full(u16)
