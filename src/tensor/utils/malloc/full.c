@@ -36,7 +36,7 @@ Tensor(Type) _Tensor_full_##Type (size_t dim, size_t *shape, Type value, bool re
 		}										\
 	}											\
 	ret.data = malloc( sizeof( *ret.data ) * *( ret.stride + ret.dim ) );			\
-	for( i = *( ret.stride + ret.dim ); i--; ){						\
+	for( i = *( ret.stride + ret.dim ); --i; ){						\
 		*( ret.data + i ) = value;							\
 	}											\
 	return ret;										\
@@ -78,9 +78,11 @@ Tensor(bool) _Tensor_full_bool (size_t dim, size_t *shape, bool value, bool requ
 		memcpy( ret.shape, shape, dim );
 	}
 
-	for( i = 0; i < ret.dim && len; i++ ){
-		len /= *( ret.shape + i );
-		*( ret.stride + i ) = len;
+	if( len ){
+		for( i = 0; i < ret.dim; i++ ){
+			len /= *( ret.shape + i );
+			*( ret.stride + i ) = len;
+		}
 	}
 
 	ret.data = malloc( sizeof( *ret.data ) * *( ret.stride + ret.dim ) );
