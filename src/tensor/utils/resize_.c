@@ -10,9 +10,7 @@
 		register Type *data = NULL;			\
 		if ( !shape ) { return *T; }			\
 		for ( len = 1, i = 0; i < dim; i++ ){		\
-			if ( *( shape + i ) ){			\
-				len *= *( shape + i );		\
-			}					\
+			len *= *( shape + i );			\
 		}						\
 		if ( len - *( (*T).stride + (*T).dim ) && dim ){\
 			return *T;				\
@@ -28,13 +26,16 @@
 			free( (*T).stride );			\
 			(*T).stride=				\
 			malloc(sizeof( *(*T).stride )*(1+dim));	\
+			(*T).data = data;			\
 		}						\
 		(*T).dim = dim;					\
 		memcpy((*T).shape, shape, sizeof(*shape)* dim );\
 		*((*T).stride + (*T).dim ) = len;		\
-		for ( i = 0; i < dim; i++ ){			\
-			*( (*T).stride + i ) = 0;		\
-			if ( *( (*T).shape + i ) ){		\
+		memset( (*T).stride, 0, sizeof( *(*T).stride ) *\
+			( 1 + (*T).dim ) );			\
+		*((*T).stride + (*T).dim) = len;		\
+		if ( len ){					\
+			for ( i = 0; i < dim; i++ ){		\
 				len /= *( (*T).shape + i );	\
 				*( (*T).stride + i ) = len;	\
 			}					\
