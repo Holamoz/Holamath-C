@@ -1,8 +1,8 @@
 
 #include "../../../include/tensor/utils/view.h"
 
-/* Generate with following macros
-#define _Tensor(Type,func,RET,...) RET _Tensor_##func##_##Type (__VA_ARGS__) {\
+#define ___Tensor_view(Type) \
+Tensor(Type) _Tensor_view_##Type (Tensor(Type) T, size_t dim, size_t *shape){\
 	register Tensor(Type) ret = {\
 		.dim = 0,\
 		.shape = NULL,\
@@ -11,59 +11,52 @@
 		.require_grad = false,\
 		.data = NULL\
 	};\
-	register size_t prod = 1;\
+	register size_t len = 1;\
 	register size_t i;\
-	if ( !shape ) { return ret; }\
+	if ( !dim && !shape ){ return ret; }\
 	for ( i = 0; i < dim; i++ ){\
-		if ( *( shape + i ) ){\
-			prod *= *( shape + i );\
-		}\
+		len *= *( shape + i );\
 	}\
-	if ( prod != *( T.stride + T.dim ) ){ return ret; }\
+	if ( len != *( T.stride + T.dim ) ){ return ret; }\
 	ret.dim = dim;\
 	ret.shape = malloc( sizeof( *ret.shape ) * ret.dim );\
 	memcpy ( ret.shape, shape, dim );\
 	ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) );\
 	ret.data = T.data;\
-	*( ret.stride + dim ) = prod;\
-	for ( i = 0; i < dim; i++ ){\
-		*( ret.stride + i ) = 0;\
-		if ( *( shape + i ) ){\
-			prod /= *( ret.shape + i );\
-			*( ret.stride + i ) = prod;\
+	memset( ret.stride, 0, sizeof( *ret.stride ) * ( 1 + ret.dim ) );\
+	*( ret.stride + dim ) = len;\
+	if( len ){\
+		for ( i = 0; i < dim; i++ ){\
+			len /= *( ret.shape + i );\
+			*( ret.stride + i ) = len;\
 		}\
 	}\
 	return ret;\
 }
 
-#define __Tensor(Type) _Tensor(Type, view, \
-		Tensor(Type),\
-		Tensor(Type) T, size_t dim, size_t *shape\
-		)
- */
+___Tensor_view(bool)
 
-Tensor(bool) _Tensor_view_bool (Tensor(bool) T, size_t dim, size_t *shape) { register Tensor(bool) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
+___Tensor_view(i8)
+___Tensor_view(i16)
+___Tensor_view(i32)
+___Tensor_view(i64)
+___Tensor_view(i128)
 
-Tensor(i8) _Tensor_view_i8 (Tensor(i8) T, size_t dim, size_t *shape) { register Tensor(i8) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(i16) _Tensor_view_i16 (Tensor(i16) T, size_t dim, size_t *shape) { register Tensor(i16) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(i32) _Tensor_view_i32 (Tensor(i32) T, size_t dim, size_t *shape) { register Tensor(i32) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(i64) _Tensor_view_i64 (Tensor(i64) T, size_t dim, size_t *shape) { register Tensor(i64) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(i128) _Tensor_view_i128 (Tensor(i128) T, size_t dim, size_t *shape) { register Tensor(i128) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
+___Tensor_view(u8)
+___Tensor_view(u16)
+___Tensor_view(u32)
+___Tensor_view(u64)
+___Tensor_view(u128)
 
-Tensor(u8) _Tensor_view_u8 (Tensor(u8) T, size_t dim, size_t *shape) { register Tensor(u8) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(u16) _Tensor_view_u16 (Tensor(u16) T, size_t dim, size_t *shape) { register Tensor(u16) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(u32) _Tensor_view_u32 (Tensor(u32) T, size_t dim, size_t *shape) { register Tensor(u32) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(u64) _Tensor_view_u64 (Tensor(u64) T, size_t dim, size_t *shape) { register Tensor(u64) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(u128) _Tensor_view_u128 (Tensor(u128) T, size_t dim, size_t *shape) { register Tensor(u128) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
+___Tensor_view(f16)
+___Tensor_view(f32)
+___Tensor_view(f64)
+___Tensor_view(f80)
+___Tensor_view(f128)
 
-Tensor(f16) _Tensor_view_f16 (Tensor(f16) T, size_t dim, size_t *shape) { register Tensor(f16) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(f32) _Tensor_view_f32 (Tensor(f32) T, size_t dim, size_t *shape) { register Tensor(f32) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(f64) _Tensor_view_f64 (Tensor(f64) T, size_t dim, size_t *shape) { register Tensor(f64) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(f80) _Tensor_view_f80 (Tensor(f80) T, size_t dim, size_t *shape) { register Tensor(f80) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(f128) _Tensor_view_f128 (Tensor(f128) T, size_t dim, size_t *shape) { register Tensor(f128) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
+___Tensor_view(cf16)
+___Tensor_view(cf32)
+___Tensor_view(cf64)
+___Tensor_view(cf80)
+___Tensor_view(cf128)
 
-Tensor(cf16) _Tensor_view_cf16 (Tensor(cf16) T, size_t dim, size_t *shape) { register Tensor(cf16) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(cf32) _Tensor_view_cf32 (Tensor(cf32) T, size_t dim, size_t *shape) { register Tensor(cf32) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(cf64) _Tensor_view_cf64 (Tensor(cf64) T, size_t dim, size_t *shape) { register Tensor(cf64) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(cf80) _Tensor_view_cf80 (Tensor(cf80) T, size_t dim, size_t *shape) { register Tensor(cf80) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
-Tensor(cf128) _Tensor_view_cf128 (Tensor(cf128) T, size_t dim, size_t *shape) { register Tensor(cf128) ret = { .dim = 0, .shape = NULL, .stride = NULL, .grad = NULL, .require_grad = false, .data = NULL }; register size_t prod = 1; register size_t i; if ( !shape ) { return ret; } for ( i = 0; i < dim; i++ ){ if ( *( shape + i ) ){ prod *= *( shape + i ); } } if ( prod != *( T.stride + T.dim ) ){ return ret; } ret.dim = dim; ret.shape = malloc( sizeof( *ret.shape ) * ret.dim ); memcpy ( ret.shape, shape, dim ); ret.stride = malloc( sizeof( *ret.stride ) * (dim+1) ); ret.data = T.data; *( ret.stride + dim ) = prod; for ( i = 0; i < dim; i++ ){ *( ret.stride + i ) = 0; if ( *( shape + i ) ){ prod /= *( ret.shape + i ); *( ret.stride + i ) = prod; } } return ret;}
